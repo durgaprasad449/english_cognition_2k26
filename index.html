@@ -17,7 +17,7 @@ body{
   min-height:100vh;
   background:
     linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-    url("images/bg.JPEG") center/cover fixed no-repeat;
+    url("bg.JPEG") center/cover fixed no-repeat;
 }
 
 /* blurred background layer */
@@ -26,7 +26,7 @@ body::before {
   position: fixed;
   inset: 0;
   background: linear-gradient(rgba(31, 30, 30, 0.5), rgba(240, 234, 234, 0)),
-              url("images/bg.JPEG") center/cover no-repeat;
+              url("bg.JPEG") center/cover no-repeat;
   filter: blur(8px);
   transform: scale(1.05);
   z-index: -1;
@@ -221,7 +221,7 @@ header h1{
 <body>
 
 <header class="main-header">
-  <img src="images/logo.JPEG" class="site-logo" alt="Logo">
+  <img src="logo.JPEG" class="site-logo" alt="Logo">
 
   <div class="header-text">
     <h1>COGNITION – 2K26</h1>
@@ -234,15 +234,15 @@ header h1{
 <div id="home" class="page active">
   <div class="grid">
     <div class="card" onclick="openPage('details')">
-      <img src="images/eventdetails.JPEG">
+      <img src="eventdetails.JPEG">
       <span>Event Details</span>
     </div>
     <div class="card" onclick="openPage('events')">
-      <img src="images/events.JPEG">
+      <img src="events.JPEG">
       <span>Events</span>
     </div>
     <div class="card" onclick="openPage('about')">
-      <img src="images/ABOUT_US.jpeg">
+      <img src="ABOUT_US.jpeg">
       <span>About Us</span>
     </div>
   </div>
@@ -266,19 +266,19 @@ header h1{
   <div class="back" onclick="openPage('home')">← Back</div>
   <div class="grid">
     <div class="card" onclick="openPage('formal')">
-      <img src="images/FORMAL.JPEG">
+      <img src="FORMAL.JPEG">
       <span>Formal Events</span>
     </div>
     <div class="card" onclick="openPage('informal')">
-      <img src="images/INFORMAL.JPEG">
+      <img src="INFORMAL.JPEG">
       <span>Informal Events</span>
     </div>
     <div class="card" onclick="openPage('gamezone')">
-      <img src="images/GAME_ZONE.JPEG">
+      <img src="GAME_ZONE.JPEG">
       <span>gamezone</span>
     </div>
     <div class="card" onclick="openPage('more')">
-      <img src="images/moredetails.JPEG">
+      <img src="moredetails.JPEG">
       <span>More Details</span>
     </div>
   </div>
@@ -289,12 +289,12 @@ header h1{
 <div id="formal" class="page">
   <div class="back" onclick="openPage('events')">← Back</div>
   <div class="grid">
-    <div class="card" onclick="showEvent('ESSAY WRITING','formal')"><img src="images/eassy.jpeg"><span>ESSAY WRITING</span></div>
-    <div class="card" onclick="showEvent('DEBATE','formal')"><img src="images/debate.jpeg"><span>DEBATE </span></div>
-    <div class="card" onclick="showEvent('CHART PRESENTATION /PPT','formal')"><img src="images/chat&ppt.jpeg"><span>CHART PRESENTATION / PPT</span></div>
-    <div class="card" onclick="showEvent('CLIP TALK','formal')"><img src="images/clip_talk.jpeg"><span>CLIP TALK</span></div>
-    <div class="card" onclick="showEvent('SNAP THE EVENT','informal')"><img src="images/SNAP_THE_EVENT.jpeg"><span>SNAP THE EVENT</span></div>
-  <div class="card" onclick="showEvent('QUIZ','formal')"><img src="images/QUIZ.JPEG"><span>QUIZ</span></div>
+    <div class="card" onclick="showEvent('ESSAY WRITING','formal')"><img src="eassy.jpeg"><span>ESSAY WRITING</span></div>
+    <div class="card" onclick="showEvent('DEBATE','formal')"><img src="debate.jpeg"><span>DEBATE </span></div>
+    <div class="card" onclick="showEvent('CHART PRESENTATION /PPT','formal')"><img src="chat&ppt.jpeg"><span>CHART PRESENTATION / PPT</span></div>
+    <div class="card" onclick="showEvent('CLIP TALK','formal')"><img src="clip_talk.jpeg"><span>CLIP TALK</span></div>
+    <div class="card" onclick="showEvent('SNAP THE EVENT','informal')"><img src="SNAP_THE_EVENT.jpeg"><span>SNAP THE EVENT</span></div>
+  <div class="card" onclick="showEvent('QUIZ','formal')"><img src="QUIZ.JPEG"><span>QUIZ</span></div>
   </div>
 </div>
 
@@ -302,12 +302,12 @@ header h1{
 <div id="informal" class="page">
   <div class="back" onclick="openPage('events')">← Back</div>
   <div class="grid">
-    <div class="card" onclick="showEvent('DANCE','informal')"><img src="images/dance.jpeg"><span>DANCE</span></div>
-    <div class="card" onclick="showEvent('MEME CONTENT','informal')"><img src="images/MEME CONTENT.JPEG"><span>MEME CONTENT</span></div>
-    <div class="card" onclick="showEvent('REEL MAKING','informal')"><img src="images/reel_making.jpeg"><span>REEl MAKING</span></div>
-    <div class="card" onclick="showEvent('TREASURE HUNT','informal')"><img src="images/treasure_hunt.jpeg"><span>TREASURE HUNT</span></div>
-    <div class="card" onclick="showEvent('ANTAKSHARI','informal')"><img src="images/antakshari.jpeg"><span>ANTAKSHARI</span></div>
-    <div class="card" onclick="showEvent('DUMB ACT','informal')"><img src="images/dumb.jpeg"><span>DUMB ACT </span></div>
+    <div class="card" onclick="showEvent('DANCE','informal')"><img src="dance.jpeg"><span>DANCE</span></div>
+    <div class="card" onclick="showEvent('MEME CONTENT','informal')"><img src="MEME CONTENT.JPEG"><span>MEME CONTENT</span></div>
+    <div class="card" onclick="showEvent('REEL MAKING','informal')"><img src="reel_making.jpeg"><span>REEl MAKING</span></div>
+    <div class="card" onclick="showEvent('TREASURE HUNT','informal')"><img src="treasure_hunt.jpeg"><span>TREASURE HUNT</span></div>
+    <div class="card" onclick="showEvent('ANTAKSHARI','informal')"><img src="antakshari.jpeg"><span>ANTAKSHARI</span></div>
+    <div class="card" onclick="showEvent('DUMB ACT','informal')"><img src="dumb.jpeg"><span>DUMB ACT </span></div>
   </div>
 </div>
 
@@ -315,29 +315,29 @@ header h1{
   <div class="back" onclick="openPage('events')">← Back</div>
   <div class="grid">
     <div class="card" onclick="showEvent('FREE FIRE','gamezone')">
-      <img src="images/free_fire.jpeg"><span>FREE FIRE</span>
+      <img src="free_fire.jpeg"><span>FREE FIRE</span>
     </div>
 
     <div class="card" onclick="showEvent('BGMI','gamezone')">
-      <img src="images/bgmi.jpeg"><span>BGMI</span>
+      <img src="bgmi.jpeg"><span>BGMI</span>
     </div>
 
     <div class="card" onclick="showEvent('LUDO','gamezone')">
-      <img src="images/ludo.JPEG"><span>LUDO</span>
+      <img src="ludo.JPEG"><span>LUDO</span>
     </div>
 
     <div class="card" onclick="showEvent('SPIN & WIN','gamezone')">
-      <img src="images/spin&win.jpeg"><span>SPIN & WIN</span>
+      <img src="spin&win.jpeg"><span>SPIN & WIN</span>
     </div>
 
     <div class="card" onclick="showEvent('HUNGRY TASTE BUDS','gamezone')">
-      <img src="images/hungry_teast.jpeg"><span>HUNGRY TASTE BUDS</span>
+      <img src="hungry_teast.jpeg"><span>HUNGRY TASTE BUDS</span>
     </div>
     <div class="card" onclick="showEvent('SNAKE AND LADDER','gamezone')">
-      <img src="images/SNAKE&LADER.jpeg"><span>SNAKE AND LADDER</span>
+      <img src="SNAKE&LADER.jpeg"><span>SNAKE AND LADDER</span>
     </div>
     <div class="card" onclick="showEvent('SQUID GAME','gamezone')">
-      <img src="images/SQUID GAME.JPEG"><span>SQUID GAME</span>
+      <img src="SQUID GAME.JPEG"><span>SQUID GAME</span>
     </div>
   </div>
 </div>
@@ -598,4 +598,5 @@ function goBack(){
 
 
 </body>
+
 </html>
