@@ -1,0 +1,601 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>COGNITION 2K26</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Times New Roman", serif;
+}
+
+body{
+  color:rgb(9, 232, 214);
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+    url("images/bg.JPEG") center/cover fixed no-repeat;
+}
+
+/* blurred background layer */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(rgba(31, 30, 30, 0.5), rgba(240, 234, 234, 0)),
+              url("images/bg.JPEG") center/cover no-repeat;
+  filter: blur(8px);
+  transform: scale(1.05);
+  z-index: -1;
+}
+
+/* HEADER */
+header{
+  text-align:center;
+  padding:30px;
+}
+
+header h1{
+  font-size:42px;
+}
+
+/* PAGE CONTROL */
+.page{ display:none; padding:30px; }
+.page.active{ display:block; }
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:35px;
+  max-width:1300px;
+  margin:auto;
+
+  perspective:1200px;   /* Enables 3D effect */
+}
+
+/* CARD */
+/* 3D Floating Entry */
+.card{
+  opacity:0;
+  transform: 
+    rotateX(60deg)
+    rotateY(-30deg)
+    translateZ(-200px)
+    scale(0.8);
+  animation: floatIn 0.9s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+.card{
+  border-radius:28px;
+  background:rgba(0,0,0,0.4);
+  padding:25px;
+  text-align:center;
+  cursor:pointer;
+  transition:0.35s;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.card:hover{
+  background:rgba(255,255,255,0.08);
+  box-shadow:0 0 20px rgba(255,192,203,0.4);
+  transform:translateY(-6px);
+}
+
+
+.card img{
+  width:160px;
+  height:160px;
+  object-fit:contain;
+  margin-bottom:18px;
+}
+.card span{
+  font-size:18px;
+  font-weight:bold;
+}
+/* Stagger delay */
+.card:nth-child(1){ animation-delay:0.1s; }
+.card:nth-child(2){ animation-delay:0.2s; }
+.card:nth-child(3){ animation-delay:0.3s; }
+.card:nth-child(4){ animation-delay:0.4s; }
+.card:nth-child(5){ animation-delay:0.5s; }
+.card:nth-child(6){ animation-delay:0.6s; }
+.card:nth-child(7){ animation-delay:0.7s; }
+
+@keyframes floatIn{
+  0%{
+    opacity:0;
+    transform:
+      rotateX(60deg)
+      rotateY(-30deg)
+      translateZ(-200px)
+      scale(0.8);
+  }
+  100%{
+    opacity:1;
+    transform:
+      rotateX(0)
+      rotateY(0)
+      translateZ(0)
+      scale(1);
+  }
+}
+/* BACK BUTTON */
+.back{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+
+  padding:10px 22px;
+  margin-bottom:20px;
+
+  font-size:16px;
+  font-weight:600;
+  color:rgb(1, 213, 228);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.18),
+      rgba(255,255,255,0.05)
+    );
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border:1.5px solid rgba(255,255,255,0.6);
+  border-radius:28px;
+
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.45),
+    0 8px 20px rgba(0,0,0,0.35);
+
+  cursor:pointer;
+  user-select:none;
+  outline:none;
+  -webkit-tap-highlight-color: transparent;
+
+  overflow:hidden;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+/* HOVER */
+.back:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.6),
+    0 12px 30px rgba(0,0,0,0.45);
+}
+
+/* CLICK / PRESS (GLOW + PRESS IN) */
+.back:active{
+  transform:scale(1.45);
+  box-shadow:
+    inset 0 0 0 rgba(255,255,255,0),
+    0 0 25px rgba(217, 225, 225, 0.75);
+}
+
+
+.back:hover{
+  background:rgba(112, 110, 110, 0);
+}
+
+/* CONTENT */
+.content{
+  max-width:900px;
+  margin:auto;
+  background:rgba(0,0,0,0.45);
+  padding:25px;
+  line-height:1.8;
+}
+.main-header{
+  position:relative;
+  text-align:center;
+  padding:30px;
+}
+
+.site-logo{
+  position:absolute;
+  top:20px;
+  left:25px;
+  width:90px;
+  height:auto;
+}
+
+.header-text h1{
+  font-size:42px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="main-header">
+  <img src="images/logo.JPEG" class="site-logo" alt="Logo">
+
+  <div class="header-text">
+    <h1>COGNITION – 2K26</h1>
+    <p>Department of ENGLISH & COMMUNICATION SKILLS</p>
+  </div>
+</header>
+
+
+<!-- HOME -->
+<div id="home" class="page active">
+  <div class="grid">
+    <div class="card" onclick="openPage('details')">
+      <img src="images/eventdetails.JPEG">
+      <span>Event Details</span>
+    </div>
+    <div class="card" onclick="openPage('events')">
+      <img src="images/events.JPEG">
+      <span>Events</span>
+    </div>
+    <div class="card" onclick="openPage('about')">
+      <img src="images/ABOUT_US.jpeg">
+      <span>About Us</span>
+    </div>
+  </div>
+</div>
+
+<!-- EVENT DETAILS -->
+<div id="details" class="page">
+  <div class="back" onclick="openPage('home')">← Back</div>
+  <div class="content">
+    <ul>
+      <li>FEBRUARY 13, 2K26</li>
+      <li>Event starts at 09:00 AM</li>
+      <li>Nalanda Degree College – Vijayawada</li>
+      <li>IGMS Complex, M.G Road,EAT Street</li>
+    </ul>
+  </div>
+</div>
+
+<!-- EVENTS -->
+<div id="events" class="page">
+  <div class="back" onclick="openPage('home')">← Back</div>
+  <div class="grid">
+    <div class="card" onclick="openPage('formal')">
+      <img src="images/FORMAL.JPEG">
+      <span>Formal Events</span>
+    </div>
+    <div class="card" onclick="openPage('informal')">
+      <img src="images/INFORMAL.JPEG">
+      <span>Informal Events</span>
+    </div>
+    <div class="card" onclick="openPage('gamezone')">
+      <img src="images/GAME_ZONE.JPEG">
+      <span>gamezone</span>
+    </div>
+    <div class="card" onclick="openPage('more')">
+      <img src="images/moredetails.JPEG">
+      <span>More Details</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- FORMAL -->
+<div id="formal" class="page">
+  <div class="back" onclick="openPage('events')">← Back</div>
+  <div class="grid">
+    <div class="card" onclick="showEvent('ESSAY WRITING','formal')"><img src="images/eassy.jpeg"><span>ESSAY WRITING</span></div>
+    <div class="card" onclick="showEvent('DEBATE','formal')"><img src="images/debate.jpeg"><span>DEBATE </span></div>
+    <div class="card" onclick="showEvent('CHART PRESENTATION /PPT','formal')"><img src="images/chat&ppt.jpeg"><span>CHART PRESENTATION / PPT</span></div>
+    <div class="card" onclick="showEvent('CLIP TALK','formal')"><img src="images/clip_talk.jpeg"><span>CLIP TALK</span></div>
+    <div class="card" onclick="showEvent('SNAP THE EVENT','informal')"><img src="images/SNAP_THE_EVENT.jpeg"><span>SNAP THE EVENT</span></div>
+  <div class="card" onclick="showEvent('QUIZ','formal')"><img src="images/QUIZ.JPEG"><span>QUIZ</span></div>
+  </div>
+</div>
+
+<!-- INFORMAL -->
+<div id="informal" class="page">
+  <div class="back" onclick="openPage('events')">← Back</div>
+  <div class="grid">
+    <div class="card" onclick="showEvent('DANCE','informal')"><img src="images/dance.jpeg"><span>DANCE</span></div>
+    <div class="card" onclick="showEvent('MEME CONTENT','informal')"><img src="images/MEME CONTENT.JPEG"><span>MEME CONTENT</span></div>
+    <div class="card" onclick="showEvent('REEL MAKING','informal')"><img src="images/reel_making.jpeg"><span>REEl MAKING</span></div>
+    <div class="card" onclick="showEvent('TREASURE HUNT','informal')"><img src="images/treasure_hunt.jpeg"><span>TREASURE HUNT</span></div>
+    <div class="card" onclick="showEvent('ANTAKSHARI','informal')"><img src="images/antakshari.jpeg"><span>ANTAKSHARI</span></div>
+    <div class="card" onclick="showEvent('DUMB ACT','informal')"><img src="images/dumb.jpeg"><span>DUMB ACT </span></div>
+  </div>
+</div>
+
+<div id="gamezone" class="page">
+  <div class="back" onclick="openPage('events')">← Back</div>
+  <div class="grid">
+    <div class="card" onclick="showEvent('FREE FIRE','gamezone')">
+      <img src="images/free_fire.jpeg"><span>FREE FIRE</span>
+    </div>
+
+    <div class="card" onclick="showEvent('BGMI','gamezone')">
+      <img src="images/bgmi.jpeg"><span>BGMI</span>
+    </div>
+
+    <div class="card" onclick="showEvent('LUDO','gamezone')">
+      <img src="images/ludo.JPEG"><span>LUDO</span>
+    </div>
+
+    <div class="card" onclick="showEvent('SPIN & WIN','gamezone')">
+      <img src="images/spin&win.jpeg"><span>SPIN & WIN</span>
+    </div>
+
+    <div class="card" onclick="showEvent('HUNGRY TASTE BUDS','gamezone')">
+      <img src="images/hungry_teast.jpeg"><span>HUNGRY TASTE BUDS</span>
+    </div>
+    <div class="card" onclick="showEvent('SNAKE AND LADDER','gamezone')">
+      <img src="images/SNAKE&LADER.jpeg"><span>SNAKE AND LADDER</span>
+    </div>
+    <div class="card" onclick="showEvent('SQUID GAME','gamezone')">
+      <img src="images/SQUID GAME.JPEG"><span>SQUID GAME</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- EVENT DETAIL PAGE -->
+<div id="eventDetail" class="page">
+  <div class="back" onclick="goBack()">← Back</div>
+  <div class="content" id="eventContent"></div>
+</div>
+
+<!-- MORE -->
+<div id="more" class="page">
+  <div class="back" onclick="openPage('events')">← Back</div>
+  <div class="content">
+    <h1>Registration for 2 events (1 formal & 1 informal) is 100/-<br>
+    ₹50 for each additional event</h1><br>
+    <h2><b>STANDING COMMITTEE:</b></h2><br>
+    <h3>MRS.M.ANURADHA</h3><br>
+    <h4>Principal</h4><br>
+    <h3>MR.V.K.PRASAD</h3><br>
+    <h4>Administrative Officer</h4><br>
+    <h3>MRS.RAJINI PREDEEPA</h3><br>
+    <h2>Head of the Department of English & Communication Skills</h2><br>
+    <h3>MR.M.VENU GOPAL</h3><br>
+    <h4>Office Superintendent</h4><br>
+    <h4></h4><br>
+    <h2><b>EVENT CO-ORDINATORS</b></h2><br>
+    <h3>MISS.S.V.PRATHYUSHA</h3><br>
+    <h3>MRS.B.KIRANMAYEE RACHEL</h3><br>
+    <h3>MISS.N.RATNA KAMALA</h3><br>
+    
+    <h2><b>STUDENT CO-ORDINATORS:</b></h2><br>
+    <h3>R.PRAVEEN - +91 7569251756</h3><br>
+    <h3>K.HANISH - +91 9642842755</h3><br>
+    <h3>N.VAMSI - +91 8688015949</h3><br>
+    <h3>G.V.L.SUMANTH - +91 7702170128 </h3>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="page">
+  <div class="back" onclick="openPage('home')">← Back</div>
+  <div class="content">
+    <br><header> COGNITION – ENGLISH & COMMUNICATION EVENT:</header> <br> 
+   COGNITION IS A PREMIER ENGLISH AND COMMUNICATION EVENT DESIGNED TO ASSESS AND ENHANCE PARTICIPANTS’ LINGUISTIC COMPETENCE, CRITICAL THINKING, AND EXPRESSIVE ABILITIES. THE EVENT PROVIDES A STRUCTURED PLATFORM FOR INDIVIDUALS TO DEMONSTRATE THEIR PROFICIENCY IN UNDERSTANDING, ANALYZING, AND ARTICULATING IDEAS EFFECTIVELY IN ENGLISH.
+
+THE COMPETITION COMPRISES A RANGE OF INTELLECTUALLY STIMULATING ACTIVITIES, INCLUDING SPEAKING ROUNDS, VOCABULARY ASSESSMENTS, SITUATIONAL DIALOGUES, DEBATES, AND EXTEMPORE SESSIONS. THESE SEGMENTS ARE CAREFULLY CURATED TO EVALUATE FLUENCY, PRONUNCIATION, GRAMMATICAL ACCURACY, COHERENCE, AND OVERALL COMMUNICATION EFFECTIVENESS.
+
+BEYOND LANGUAGE PROFICIENCY, COGNITION EMPHASIZES THE DEVELOPMENT OF ESSENTIAL SOFT SKILLS SUCH AS ANALYTICAL REASONING, QUICK DECISION-MAKING, STAGE PRESENCE, AND CONFIDENCE IN PUBLIC SPEAKING. THE EVENT FOSTERS A SPIRIT OF HEALTHY COMPETITION WHILE ENCOURAGING PARTICIPANTS TO REFINE THEIR COMMUNICATION SKILLS IN A PROFESSIONAL AND ACADEMIC SETTING.
+
+COGNITION ULTIMATELY AIMS TO NURTURE ARTICULATE, CONFIDENT, AND THOUGHTFUL COMMUNICATORS WHO CAN EXPRESS THEIR PERSPECTIVES WITH CLARITY AND PERSUASION IN DIVERSE CONTEXTS.
+
+   
+
+
+<br><header><Head> ABOUT - NALANDA</Head></header> <br>
+    "AS WE SUCCESSFULLY ENTERED 25 YEARS OF ACADEMIC EXCELLENCE, NALANDA DEGREE COLLEGE REFLECTS ON A JOURNEY OF NURTURING TALENT, FOSTERING INNOVATION, AND SHAPING FUTURES".NALANDA DEGREE COLLEGE IS A PRESTIGIOUS INSTITUTION FOR HIGHER LEARNING, ESPECIALLY DEDICATED TO PROVIDING QUALITY EDUCATION.ALONG WITH ACADEMICS,WE PROMOTE PERSONAL AS WELL AS PROFESSIONAL GROWTH AND FLOURISHMENT.WE OFFER COMPREHENSIVE EXTRA-CURRICULAR ACTIVITIES,HOST MEGA EVENTS FOR CULTURAL EXCHANGE AND DIVERSITY EXPOSURE. BY PARTICIPATING IN MEGA EVENTS AT OUR COLLEGE, STUDENTS GAIN VALUABLE EXPERIENCES,SKILLS, PROFESSIONAL NETWORKING, EXPOSURE TO NEW IDEAS,TEAM LEADERSHIP AND BUILDING A STRONG PORTFOLIO.
+  </div>
+</div>
+
+<script>
+let previousPage = "home";
+
+function openPage(id){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  previousPage = id;
+}
+
+const eventDetails = {
+  "ESSAY WRITING": `
+    <h2>ESSAY WRITING</h2>
+    <p><b>RULES :</b></p>
+    <ul>
+      <li>Any number of participants can participate from each college </li>
+      <li>Topic will be announced on the spot</li>
+      <li>Duration : 45 MIN.</li>
+    </ul>
+  `,
+
+  "DEBATE": `
+    <h2>DEBATE</h2>
+    <p><b>RULES :</b></p>
+    <ul>
+      <li>Any number of participants can participate from each college</li>
+      <li>Topic will be announced 1 hour before</li>
+    </ul>
+  `,
+ "QUIZ": `
+    <h2>QUIZ</h2>
+    <p><b>RULES :</b></p>
+    <ul>
+      <li>Any number of participants can participate from each college</li>
+      <li>Topic : General Knowledege</li>
+      <li>Each team 2 participants</li>
+    </ul>
+  `,
+  "CHART PRESENTATION /PPT": `
+    <h2>CHART PRESENTATION /PPT</h2>
+    <p><b>RULES :</b></p>
+    <ul>
+      <li>Any number of participants can participate from each college</li>
+      <li>Participants should submit their presentations on the event day</li>
+    </ul>
+    <p><b>TOPICS:</b></p>
+    <ul>
+      <li>AI & Future of Education</li>
+    </ul>
+  `,
+
+  "CLIP TALK": `
+    <h2>CLIP TALK</h2>
+    <ul>
+      <li>Any number of participants can participate from each college</li>
+       <p><b>ABOUT:</b></p>
+      <li>We will show one animation clip , the participant need to narrate the scene in English</li>
+    </ul>
+  `,
+
+  "DANCE": `
+    <h2>DANCE</h2>
+    <ul>
+      <li>Solo or Group.</li>
+       <li>Any number of participants can participate from each college.</li>
+    </ul>
+  `,
+
+  "SNAP THE EVENT": `
+    <h2>SNAP THE EVENT</h2>
+    <ul>
+      <li>Any number of participants can participate from each college</li>
+      <li>Click the pictures of the event in different zones </li>
+      <li>Minimum pictures should be 5 </li>
+      <li>Maximum pictures should be 10 </li>
+    </ul>
+  `,
+
+  "REEL MAKING": `
+    <h2>REEL MAKING</h2>
+    <ul>
+      <li>Any number of participants can participate from each college</li>
+      <p><b>TOPIC:</b></p>
+      <li>Youth Addiction on  Social Media </li>
+      <li>Duration : 1 MIN.</li>
+      <b>Upload on Instagram:</b> 
+      Follow & Tag 
+      <li>here is the instagram page ID,DM your reel  along with the participant details.</li>
+      <a href="https://www.instagram.com/cognition2k26" target="_blank">
+        @cognition2k26
+      </a>
+    </li>
+  
+    </ul>
+  `,
+
+  "TREASURE HUNT": `
+    <h2>TREASURE HUNT</h2>
+    <ul>
+      <li>Any of the participant can participate from each college.</li>
+    </ul>
+  `,
+"ANTAKSHARI": `
+    <h2>ANTAKSHARI</h2>
+    <ul>
+      <li>Any of the participant can participate from each college.</li>
+      <li>Each team 3 Members</li>
+    </ul>
+  `,
+  "DUMB ACT": `
+    <h2>DUMB ACT</h2>
+    <ul>
+      <li>Any of the partcipant can particpate from each college.</li>
+      <li>Each team 2 participants.</li>
+    </ul>
+  `, 
+  "MEME CONTENT": `
+    <h2>MEME CONTENT</h2>
+    <ul>
+      <li>Any of the partcipant can particpate from each college.</li>
+      <li>Each team 2 participants.</li>
+    </ul>
+  `,
+"FREE FIRE": `
+  <h2>FREE FIRE</h2>
+  <ul>
+    <li>Any of the partcipant can particpate from each college.</li>
+    <li>Solo players.</li>
+    <li>Room ID & password will be shared before the match.</li>
+  </ul>
+`,
+
+"BGMI": `
+  <h2>BGMI</h2>
+  <ul>
+    <li>Any of the partcipant can particpate from each college.</li>
+    <li>Solo player.</li>
+    <li>Room ID & password will be shared before the match.</li>
+  </ul>
+`,
+
+"LUDO": `
+  <h2>LUDO</h2>
+  <ul>
+    <li>Individual participation is allowed.</li>
+    <li>Online/Offline mode based on availability.</li>
+    <li>Knockout format.</li>
+  </ul>
+`,
+
+"SNAKE AND LADDER": `
+  <h2>SNAKE AND LADDER</h2>
+  <ul>
+    <li>Individual participation is allowed.</li>
+    <li>Offline mode .</li>
+    <li>Knockout format.</li>
+  </ul>
+`,
+"SPIN & WIN": `
+  <h2>SPIN & WIN</h2>
+  <ul>
+    <li>Any of the participant can participate from each college.</li>
+    <li>Single participant.</li>
+  </ul>
+`,
+"SQUID GAME": `
+  <h2>SQUID GAME</h2>
+  <ul>
+    <li>Any of the participant can participate from each college.</li>
+    <li>Single participant</li>
+  </ul>
+`,
+
+"HUNGRY TASTE BUDS": `
+  <h2>HUNGRY TASTE BUDS</h2>
+  <ul>
+    <li>Food identification challenge.</li>
+    <li>Participants must guess ingredients or dish names.</li>
+    <li>Time-based elimination round.</li>
+  </ul>
+`,
+};
+
+
+function showEvent(name, fromPage){
+  previousPage = fromPage;
+  document.getElementById("eventContent").innerHTML =
+    eventDetails[name] || "<p>Details coming soon.</p>";
+
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById("eventDetail").classList.add("active");
+}
+
+function goBack(){
+  openPage(previousPage);
+}
+</script>
+
+
+</body>
+</html>
