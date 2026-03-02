@@ -245,7 +245,10 @@ header h1{
       <img src="ABOUT_US.jpeg">
       <span>About Us</span>
     </div>
-  </div>
+    <div class="card" onclick="openPage('about')">
+      <img src="ABOUT_US.jpeg">
+      <span>About Us</span>
+    </div>
 </div>
 
 <!-- EVENT DETAILS -->
@@ -342,7 +345,20 @@ header h1{
   </div>
 </div>
 
+!-- VIDEO PAGE -->
+<div id="videoPage" class="page">
+  <div class="back" onclick="openPage('home')">← Back</div>
+  <div class="content" style="text-align:center;">
+    
+    <h2>COGNITION 2K26 – Promo Video</h2>
+    <br>
 
+    <video width="100%" controls>
+      <source src="cognition" type="video/mp4">
+    </video>
+
+  </div>
+</div>
 <!-- EVENT DETAIL PAGE -->
 <div id="eventDetail" class="page">
   <div class="back" onclick="goBack()">← Back</div>
@@ -600,4 +616,5 @@ function goBack(){
 </body>
 
 </html>
+
 
